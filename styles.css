@@ -166,47 +166,50 @@ h2 {
 .project-card a:hover {
     background: #500b8c;
 }
-
-/* Default Navbar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #6a0dad;
-    padding: 10px 20px;
-}
-
-/* Hide menu by default in mobile */
+/* Fix for menu items */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap; /* Prevents items from breaking into new lines */
 }
 
-/* Mobile view - Hide menu initially */
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+/* Mobile Fix */
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #6a0dad;
         position: absolute;
-        top: 50px;
-        right: 0;
+        top: 60px;
+        left: 0;
         width: 100%;
+        background: #6a0dad;
         text-align: center;
     }
-
-    /* Show menu when active */
-    .nav-links.active {
-        display: flex;
+    
+    .nav-links li {
+        display: block;
+        padding: 10px;
     }
 
     .menu-toggle {
         display: block;
-        font-size: 24px;
-        cursor: pointer;
     }
 }
+
 /* Prevent content from hiding under navbar */
 body {
     padding-top: 70px;
